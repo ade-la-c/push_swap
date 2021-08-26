@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   algo_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 17:33:56 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/26 18:53:31 by ade-la-c         ###   ########.fr       */
+/*   Created: 2021/08/26 19:58:21 by ade-la-c          #+#    #+#             */
+/*   Updated: 2021/08/26 20:13:25 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	exit_error(char *error)
+static void	push_lower_values(t_tabs *tabs)
 {
-	ft_putstr("ERROR : ");
-	ft_putstr(error);
-	ft_putchar('\n');
-	exit(0);
+
+	return ;
 }
 
-// temporary
-
-void	print_tab(int *tab, int tabsize)
+void	algo_5(t_tabs *tabs)
 {
-	int	i;
-
-	i = 0;
-	while (i < tabsize)
-	{
-		printf("[%d]", tab[i]);
-		i++;
-	}
-	printf("\n---\n");
+	
 	return ;
 }

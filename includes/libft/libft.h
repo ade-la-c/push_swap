@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:06:51 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/06/01 15:42:25 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/26 14:52:45 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void				ft_putchar(char c);
 void				ft_putstr(char *s);
 void				ft_putnbr_base(int nbr, char *base);
 char				*ft_utoa(unsigned long long n);
+int					ft_strcmp(const char *s1, const char *s2);
 
 #endif

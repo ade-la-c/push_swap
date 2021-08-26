@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 14:03:19 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/25 18:22:03 by ade-la-c         ###   ########.fr       */
+/*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
+/*   Updated: 2021/08/26 18:52:36 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,26 @@
 typedef struct s_tabs
 {
 	int	*sta;
+	int	sizea;
 	int	*stb;
+	int	sizeb;
 }	t_tabs;
 
 //---MAIN---//
 int					main(int ac, char **av);
-void				strs_to_tab(char **strs, int *tab);
+
+//---ACTION---//
+void				action(t_tabs *tabs, char *action);
 
 //---UTILS---//
 void				exit_error(char *error);
-int					tabsize(int *tab);
+
+//---ALGO---//
+void				algo_3(t_tabs *tabs);
+
+
+void		print_tab(int *tab, int tabsize);
+
 
 // static int iteration = 0;
 #endif

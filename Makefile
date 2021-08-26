@@ -6,16 +6,17 @@
 #    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/08/25 18:15:16 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/08/26 19:59:14 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 
-SRCS			= srcs/push_swap.h \
-				srcs/main.c \
-				srcs/action.c \
+SRCS			= srcs/main.c \
+				srcs/actions.c \
 				srcs/utils/utils.c \
+				srcs/algo/algo_3.c \
+				srcs/algo/algo_5.c \
 
 OBJS			= $(SRCS:.c=.o)
 
