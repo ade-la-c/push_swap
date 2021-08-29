@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/26 18:52:36 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/27 22:07:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@
 typedef struct s_tabs
 {
 	int	*sta;
-	int	sizea;
 	int	*stb;
+	int	sizea;
 	int	sizeb;
+	int	lowa;
+	int	lowb;
 }	t_tabs;
 
 //---MAIN---//
@@ -41,6 +43,7 @@ void				exit_error(char *error);
 
 //---ALGO---//
 void				algo_3(t_tabs *tabs);
+void				algo_5(t_tabs *tabs);
 
 
 void		print_tab(int *tab, int tabsize);

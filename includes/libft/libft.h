@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:06:51 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/26 14:52:45 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:49:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void				ft_putstr(char *s);
 void				ft_putnbr_base(int nbr, char *base);
 char				*ft_utoa(unsigned long long n);
 int					ft_strcmp(const char *s1, const char *s2);
+void				ft_sort_int_tab(int *tab, int size);
 
 #endif

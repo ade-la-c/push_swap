@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 14:15:40 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/08/26 14:52:57 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/08/27 14:48:38 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS	= ft_strlen.c \
 		ft_putnbr_base.c \
 		ft_utoa.c \
 		ft_strcmp.c \
+		ft_sort_int_tab.c \
 
 OBJS	= ${SRCS:.c=.o}
 

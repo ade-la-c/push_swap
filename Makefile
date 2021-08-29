@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/08/26 19:59:14 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/08/27 22:06:53 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS			= srcs/main.c \
 				srcs/actions.c \
 				srcs/utils/utils.c \
 				srcs/algo/algo_3.c \
-				srcs/algo/algo_5.c \
+				srcs/algo/algo_5.c 
 
 OBJS			= $(SRCS:.c=.o)
 
@@ -24,7 +24,7 @@ CC				= gcc
 
 RM				= rm -f
 
-CFLAGS			= -Wall -Werror -Wextra -I. -g -fsanitize=address
+CFLAGS			= -Wall -Werror -Wextra -I. #-g -fsanitize=address
 
 LIB				= -L ./includes/libft -lft
 

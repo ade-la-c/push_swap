@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 19:42:11 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/06/01 15:51:34 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:13:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char	*ft_itoa(int n)
 	long int	nb;
 	char		*str;
 	int			lgt;
-	int			end;
 
 	nb = n;
 	lgt = strlgt(nb);
@@ -45,7 +44,6 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (nb < 0)
 		nb *= -1;
-	end = lgt + 1;
 	while (lgt > 0)
 	{
 		str[--lgt] = (nb % 10) + 48;

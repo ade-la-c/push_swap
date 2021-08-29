@@ -3,14 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/26 18:53:50 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/27 22:08:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	check_doubles(char **strs)
+{
+	int	i;
+	int	j;
+	int	x;
+
+	i = 0;
+	x = 0;
+	while (strs && strs[i])
+	{
+		j = -1;
+		while (strs[i] && strs[++j])
+			if (ft_atoi(strs[i]) == ft_atoi(strs[j]))
+				x++;
+		i++;
+		if (x > 1)
+			exit_error("duplicate numbers aren't allowed");
+		x = 0;
+	}
+}
+
+static void	check_stack(char **strs)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (!strs || !strs[2])
+		exit_error("stack is not long enough");
+	while (strs && strs[i])
+	{
+		j = 0;
+		if (strs[i][j] == '-' || strs[i][j] == '+')
+			j++;
+		while (ft_isdigit(strs[i][j]))
+			j++;
+		if (strs[i][j])
+		{
+			ft_putstr("Error\n");
+			exit(0);
+		}
+		i++;
+	}
+	check_doubles(strs);
+}
 
 static int	*strs_to_tab(char **strs, t_tabs *tabs)
 {
@@ -20,8 +66,10 @@ static int	*strs_to_tab(char **strs, t_tabs *tabs)
 	while (strs[i])
 		i++;
 	tabs->sizea = i;
+	tabs->sizeb = 0;
 	tabs->sta = (int *)malloc(sizeof(int) * i);//printf("->%d\n", i);exit(0);
-	if (!tabs->sta)
+	tabs->stb = (int *)malloc(sizeof(int) * i);
+	if (!tabs->sta || !tabs->stb)
 		exit_error("malloc failed");
 	i = 0;
 	while (strs[i])
@@ -41,12 +89,15 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		exit_error("too many / few arguments");
 	strs = ft_split(av[1], ' ');
+	check_stack(strs);
 	if (!strs)
 		exit_error("malloc failed");
 	tabs->sta = strs_to_tab(strs, tabs);
 	print_tab(tabs->sta, tabs->sizea);
 	if (tabs->sizea == 3)
 		algo_3(tabs);
+	else if (tabs->sizea == 5)
+		algo_5(tabs);
 	print_tab(tabs->sta, tabs->sizea);
 	return (0);
 }
