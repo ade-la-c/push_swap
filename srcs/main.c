@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/27 22:08:01 by marvin           ###   ########.fr       */
+/*   Updated: 2021/08/30 19:13:43 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	*strs_to_tab(char **strs, t_tabs *tabs)
 		i++;
 	tabs->sizea = i;
 	tabs->sizeb = 0;
-	tabs->sta = (int *)malloc(sizeof(int) * i);//printf("->%d\n", i);exit(0);
+	tabs->sta = (int *)malloc(sizeof(int) * i);
 	tabs->stb = (int *)malloc(sizeof(int) * i);
 	if (!tabs->sta || !tabs->stb)
 		exit_error("malloc failed");
@@ -98,6 +98,8 @@ int	main(int ac, char **av)
 		algo_3(tabs);
 	else if (tabs->sizea == 5)
 		algo_5(tabs);
+	else if (tabs->sizea == 100)
+		algo_100(tabs);
 	print_tab(tabs->sta, tabs->sizea);
 	return (0);
 }

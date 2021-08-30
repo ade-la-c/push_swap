@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 19:58:21 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/29 16:55:52 by marvin           ###   ########.fr       */
+/*   Updated: 2021/08/30 15:36:35 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void	push_lower_values(t_tabs *tabs)
 			action(tabs, "ra");
 		else if (tabs->lowb != tabs->sta[1])
 			action(tabs, "rra");
-	}print_tab(tabs->stb, tabs->sizeb);
+	}
+	print_tab(tabs->stb, tabs->sizeb);
 	return ;
 }
 

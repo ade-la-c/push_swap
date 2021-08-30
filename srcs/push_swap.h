@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/27 22:07:06 by marvin           ###   ########.fr       */
+/*   Updated: 2021/08/30 19:35:09 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_tabs
 {
 	int	*sta;
 	int	*stb;
+	int	**chunks;
+	int	chunk;
 	int	sizea;
 	int	sizeb;
 	int	lowa;
@@ -40,14 +42,16 @@ void				action(t_tabs *tabs, char *action);
 
 //---UTILS---//
 void				exit_error(char *error);
+void				sort_chunks(t_tabs *tabs);
+int					is_in_tab(int n, int *tab, int len);
 
 //---ALGO---//
 void				algo_3(t_tabs *tabs);
 void				algo_5(t_tabs *tabs);
+void				algo_100(t_tabs *tabs);
 
 
 void		print_tab(int *tab, int tabsize);
 
-
-// static int iteration = 0;
+static int iteration = 1;
 #endif

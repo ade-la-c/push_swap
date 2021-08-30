@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:13:58 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/29 17:06:09 by marvin           ###   ########.fr       */
+/*   Updated: 2021/08/30 15:48:42 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ void	action(t_tabs *tabs, char *action)
 	else if (!ft_strcmp(action, "pa"))
 	{
 		push(tabs->stb, tabs->sta, tabs->sizeb, tabs->sizea);
-		tabs->sizeb -= 1;
 		tabs->sizea += 1;
+		tabs->sizeb -= 1;
 	}
 	else if (!ft_strcmp(action, "pb"))
 	{
@@ -123,5 +123,6 @@ void	action(t_tabs *tabs, char *action)
 	else
 		exit_error("wrong action param");
 	ft_putstr(action);
-	ft_putchar('\n');
+	printf("\t\t(%d)\n", iteration++);
+	// ft_putchar('\n');
 }

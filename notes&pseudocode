@@ -6,8 +6,10 @@
 #    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 22:31:22 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/08/26 19:56:54 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/08/30 21:43:00 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-->	actions.c PUSH untested & not normed
+->	"push_value" en cours (algo 100),
+
+->	i need to figure out how to push 1 closest value at a time
