@@ -3,14 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   algo_100.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 17:30:35 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/30 22:00:21 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/31 01:03:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static void	push_to_stb(t_tabs *tabs, int x, int bool)
+{
+	while (x > 0)
+	{
+		if (bool == 1)
+		{
+			action(tabs, "rra");
+			x--;
+		}
+		else if (bool == 0)
+		{
+			action(tabs, "ra");
+			x--;
+		}
+	}
+	printf("## %d ##", tabs->sta[0]);
+	action(tabs, "pb");
+	printf("\n");
+	return ;
+}
+
+static void	push_value(t_tabs *tabs, int posa, int posb)
+{
+	int	a;
+	int	b;
+
+	if (posa < tabs->sizea / 2)
+		a = posa;
+	else if (posa >= tabs->sizea / 2)
+		a = tabs->sizea - posa;
+	if (posb < tabs->sizea / 2)
+		b = posb;
+	else if (posb >= tabs->sizea / 2)
+		b = tabs->sizea - posb;
+	if (posa <= posb)
+		push_to_stb(tabs, a, 0);
+	else if (posa > posb)
+		push_to_stb(tabs, b, 1);
+}
 
 static void	get_two_values(t_tabs *tabs, int *chunk)
 {
@@ -41,11 +81,7 @@ static void	get_two_values(t_tabs *tabs, int *chunk)
 	push_value(tabs, posa, posb);
 }
 
-static void	push_value(t_tabs *tabs, int posa, int posb)
-{
-	if (posa <= tabs->sizea / 2)
-		
-}
+
 
 void	algo_100(t_tabs *tabs)
 {
@@ -60,10 +96,10 @@ void	algo_100(t_tabs *tabs)
 		while (tabs->sizeb < j)
 		{
 			get_two_values(tabs, tabs->chunks[i]);
-			// push_value(tabs);
+			// push_value(tabs, );
 		}
 		j += 20;
 		i++;
-	}
+	}print_tab(tabs->stb, tabs->sizeb);
 	return ;
 }

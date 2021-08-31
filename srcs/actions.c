@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:13:58 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/30 15:48:42 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/31 00:32:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ static void	push(int *src, int *dest, int sizea, int sizeb)
 
 void	action(t_tabs *tabs, char *action)
 {
+	static int	iteration = 1;
 	if (!ft_strcmp(action, "sa") || !ft_strcmp(action, "sb")
 		|| !ft_strcmp(action, "ss"))
 		swap(tabs, action);

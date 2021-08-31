@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/30 19:35:09 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/08/31 00:31:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ void				algo_100(t_tabs *tabs);
 
 void		print_tab(int *tab, int tabsize);
 
-static int iteration = 1;
+// static int iteration = 1;
 #endif
