@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:33:56 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/30 20:46:16 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:40:38 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,12 @@ int	is_in_tab(int n, int *tab, int len)
 
 // temporary
 
-void	print_tab(int *tab, int tabsize)
+void	print_tab(int *tab, int tabsize, char *str)
 {
 	int	i;
 
 	i = 0;
+	printf("--%s--\n", str);
 	while (i < tabsize)
 	{
 		printf("[%d]", tab[i]);

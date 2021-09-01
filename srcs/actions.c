@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:13:58 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/31 00:32:33 by marvin           ###   ########.fr       */
+/*   Updated: 2021/09/01 20:21:12 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	reverse_rotate(t_tabs *tabs, char *action)
 }
 
 static void	push(int *src, int *dest, int sizea, int sizeb)
-{
+{static int	iteration = 1;
 	int	tmp;
 	int	i;
 
@@ -95,6 +95,7 @@ static void	push(int *src, int *dest, int sizea, int sizeb)
 		i--;
 	}
 	dest[0] = tmp;
+	printf("(%d)", iteration++);
 }
 
 void	action(t_tabs *tabs, char *action)
