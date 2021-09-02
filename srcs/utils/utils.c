@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:33:56 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/01 18:40:38 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/02 16:03:10 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	is_in_tab(int n, int *tab, int len)
 	i = -1;
 	while (++i < len)
 		if (tab[i] == n)
-			return (i + 1);
-	return (0);
+			return (i);
+	return (-5);
 }
 
 // temporary

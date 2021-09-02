@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/01 18:41:51 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/02 14:44:46 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	main(int ac, char **av)
 	else if (tabs->sizea == 5)
 		algo_5(tabs);
 	else if (tabs->sizea == 100)
-		algo_100(tabs);
+		big_algo(tabs);
 	print_tab(tabs->sta, tabs->sizea, "sta main end");
 	return (0);
 }

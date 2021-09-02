@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_100.c                                         :+:      :+:    :+:   */
+/*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 17:30:35 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/01 20:29:41 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/02 18:54:34 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 // static void	push_to_stb(t_tabs *tabs, int x, int bool)
 // {
@@ -33,22 +33,24 @@
 // }
 
 static void	push_value(t_tabs *tabs, int num, int i, int pos)
-{printf("||%d||", pos);
+{//printf("||%d||\n", pos);
 	while (i > 0 && pos != 0)
 	{
-		if (pos <= tabs->sizea / 2)
-			action(tabs, "ra");
-		else
+		if (pos > tabs->sizea / 2)
 			action(tabs, "rra");
+		else
+			action(tabs, "ra");
 		i--;
 	}
-	printf("|%d|%d|\n", i, tabs->sta[0]);
-	if (num == tabs->sta[0]){
-		action(tabs, "pb");}
+	// printf("|%d|%d|\n", i, tabs->sta[0]);
+	if (num == tabs->sta[0])
+	{
+		// organize_stb(tabs, num);
+		action(tabs, "pb");
+	}
 	else{	print_tab(tabs->sta, tabs->sizea, "sta");
 			print_tab(tabs->stb, tabs->sizeb, "stb");
 		exit_error("push_value doesn't work properly");}
-	return ;
 }
 
 static void	push_correct_value(t_tabs *tabs)
@@ -60,17 +62,21 @@ static void	push_correct_value(t_tabs *tabs)
 
 	posa = is_in_tab(tabs->lowa, tabs->sta, tabs->sizea);
 	posb = is_in_tab(tabs->lowb, tabs->sta, tabs->sizea);
+	if (posa == -5 || posb == -5){
+	print_tab(tabs->sta, tabs->sizea, "sta");
+	print_tab(tabs->stb, tabs->sizeb, "stb");
+		exit_error("pos problem");}
 	if (posa <= tabs->sizea / 2)
-		a = posa - 1;
+		a = posa;
 	else
-		a = tabs->sizea - posa + 1;
+		a = tabs->sizea - posa;
 	if (posb <= tabs->sizea / 2)
-		b = posb - 1;
+		b = posb;
 	else
-		b = tabs->sizea - posb + 1;
-	if (a <= b){printf("+");
+		b = tabs->sizea - posb;			printf("A:%d B:%d\n", a, b);
+	if (a <= b){printf(" %d+", a);
 		push_value(tabs, tabs->lowa, a, posa);}
-	else if (a > b){printf(" %d~", posb);
+	else if (a > b){printf(" %d~", b);
 		push_value(tabs, tabs->lowb, b, posb);}
 	return ;
 }
@@ -82,24 +88,34 @@ static void	get_two_values(t_tabs *tabs, int *chunk)
 	i = 0;
 	while (i < tabs->sizea)
 	{
-		if (is_in_tab(tabs->sta[i], chunk, 20))
+		if (is_in_tab(tabs->sta[i], chunk, 20) >= 0)
 		{
 			tabs->lowa = tabs->sta[i];
 			break ;
 		}
 		i++;
 	}
-	// i = tabs->sizea;
 	i = 0;
 	while (i < tabs->sizea)
 	{
-		if (is_in_tab(tabs->sta[i], chunk, 20) && tabs->sta[i] != tabs->lowa)
+		if (is_in_tab(tabs->sta[i], chunk, 20) >= 0 /*&& tabs->sta[i] != tabs->lowa*/)
 			tabs->lowb = tabs->sta[i];
 		i++;
 	}
+	// i = tabs->sizea;
+	// while (i > 0)
+	// {
+	// 	if (is_in_tab(tabs->sta[i], chunk, 20) >= 0 /*&& tabs->sta[i] != tabs->lowa*/)
+	// 	{
+	// 		tabs->lowb = tabs->sta[i];
+	// 		break ;
+	// 	}
+	// 	i--;
+	// }
+	printf("lowA %d, lowB %d\n", tabs->lowa, tabs->lowb);
 }
 
-void	algo_100(t_tabs *tabs)
+void	big_algo(t_tabs *tabs)
 {
 	int	i;
 	int	j;
@@ -112,10 +128,10 @@ void	algo_100(t_tabs *tabs)
 		while (tabs->sizeb < j)
 		{
 			get_two_values(tabs, tabs->chunks[i]);
-			push_correct_value(tabs);
+			push_correct_value(tabs);printf("%d\t", i);
 		}
 		j += 20;
 		i++;
-	}print_tab(tabs->stb, tabs->sizeb, "sta after algo 100");
+	}print_tab(tabs->stb, tabs->sizeb, "stb after algo 100");
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/01 18:40:50 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/02 15:19:25 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int					is_in_tab(int n, int *tab, int len);
 //---ALGO---//
 void				algo_3(t_tabs *tabs);
 void				algo_5(t_tabs *tabs);
-void				algo_100(t_tabs *tabs);
+void				big_algo(t_tabs *tabs);
+// void				sort_stb(t_tabs *tabs, int num);
 
 
 void		print_tab(int *tab, int tabsize, char *str);
