@@ -6,7 +6,7 @@
 #    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/09/02 15:19:21 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/09/07 17:35:06 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS			= srcs/main.c \
 				srcs/algo/algo_3.c \
 				srcs/algo/algo_5.c \
 				srcs/algo/big_algo/big_algo.c \
-				#srcs/algo/big_algo/sort_stb.c
+				srcs/algo/big_algo/push_back.c
 
 OBJS			= $(SRCS:.c=.o)
 

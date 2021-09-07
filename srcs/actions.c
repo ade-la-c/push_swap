@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:13:58 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/01 20:21:12 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/03 17:32:35 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,7 @@ void	action(t_tabs *tabs, char *action)
 		exit_error("wrong action param");
 	ft_putstr(action);
 	printf("\t\t(%d)\n", iteration++);
+	if (iteration > 1000)
+		exit_error("el muchacho de los ojos tristes");
 	// ft_putchar('\n');
 }

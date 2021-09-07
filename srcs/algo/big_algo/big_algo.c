@@ -6,31 +6,11 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 17:30:35 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/02 18:54:34 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/07 18:25:55 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-// static void	push_to_stb(t_tabs *tabs, int x, int bool)
-// {
-// 	while (x > 0)
-// 	{
-// 		if (bool == 1)
-// 		{
-// 			action(tabs, "rra");
-// 			x--;
-// 		}
-// 		else if (bool == 0)
-// 		{
-// 			action(tabs, "ra");
-// 			x--;
-// 		}
-// 	}
-// 	printf("## %d ##", tabs->sta[0]);
-// 	action(tabs, "pb");
-// 	return ;
-// }
 
 static void	push_value(t_tabs *tabs, int num, int i, int pos)
 {//printf("||%d||\n", pos);
@@ -45,8 +25,9 @@ static void	push_value(t_tabs *tabs, int num, int i, int pos)
 	// printf("|%d|%d|\n", i, tabs->sta[0]);
 	if (num == tabs->sta[0])
 	{
-		// organize_stb(tabs, num);
+		// sort_stb(tabs);
 		action(tabs, "pb");
+		// action(tabs, "rb");
 	}
 	else{	print_tab(tabs->sta, tabs->sizea, "sta");
 			print_tab(tabs->stb, tabs->sizeb, "stb");
@@ -98,20 +79,10 @@ static void	get_two_values(t_tabs *tabs, int *chunk)
 	i = 0;
 	while (i < tabs->sizea)
 	{
-		if (is_in_tab(tabs->sta[i], chunk, 20) >= 0 /*&& tabs->sta[i] != tabs->lowa*/)
+		if (is_in_tab(tabs->sta[i], chunk, 20) >= 0)
 			tabs->lowb = tabs->sta[i];
 		i++;
 	}
-	// i = tabs->sizea;
-	// while (i > 0)
-	// {
-	// 	if (is_in_tab(tabs->sta[i], chunk, 20) >= 0 /*&& tabs->sta[i] != tabs->lowa*/)
-	// 	{
-	// 		tabs->lowb = tabs->sta[i];
-	// 		break ;
-	// 	}
-	// 	i--;
-	// }
 	printf("lowA %d, lowB %d\n", tabs->lowa, tabs->lowb);
 }
 
@@ -132,6 +103,11 @@ void	big_algo(t_tabs *tabs)
 		}
 		j += 20;
 		i++;
-	}print_tab(tabs->stb, tabs->sizeb, "stb after algo 100");
+	}
+	while (tabs->sizeb > 0)
+	{
+		push_back(tabs);
+	}
+	print_tab(tabs->stb, tabs->sizeb, "stb after algo 100");
 	return ;
 }
