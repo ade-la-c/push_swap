@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/07 17:38:02 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/08 15:11:14 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,24 @@ typedef struct s_tabs
 }	t_tabs;
 
 //---MAIN---//
+
 int					main(int ac, char **av);
 
 //---ACTION---//
+
 void				action(t_tabs *tabs, char *action);
 
 //---UTILS---//
+
 void				exit_error(char *error);
 void				sort_chunks(t_tabs *tabs);
 int					is_in_tab(int n, int *tab, int len);
 
 //---ALGO---//
+
 void				algo_3(t_tabs *tabs);
 void				algo_5(t_tabs *tabs);
 void				big_algo(t_tabs *tabs);
-void				push_back(t_tabs *tabs);
 
 void		print_tab(int *tab, int tabsize, char *str);
 

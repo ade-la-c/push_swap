@@ -6,11 +6,13 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:33:56 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/07 17:33:19 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/08 15:06:05 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+//	exit_error is used everytime an error is expected to avoid crashing
 
 void	exit_error(char *error)
 {
@@ -19,6 +21,8 @@ void	exit_error(char *error)
 	ft_putchar('\n');
 	exit(0);
 }
+
+//	fill_chunks recieves a sorted tab & splits it into chunks for later
 
 static void	fill_chunks(t_tabs *tabs, int *sorted_tab)
 {
@@ -43,6 +47,8 @@ static void	fill_chunks(t_tabs *tabs, int *sorted_tab)
 	}
 }
 
+//	sort_chunks chooses the number of chunks used & sorts STA in a tab
+
 void	sort_chunks(t_tabs *tabs)
 {
 	int	*sorted_tab;
@@ -64,6 +70,8 @@ void	sort_chunks(t_tabs *tabs)
 	fill_chunks(tabs, sorted_tab);
 }
 
+//	is_in_tab checks if a value is in a tab & returns its position
+
 int	is_in_tab(int n, int *tab, int len)
 {
 	int	i;
@@ -75,7 +83,7 @@ int	is_in_tab(int n, int *tab, int len)
 	return (-5);
 }
 
-// temporary
+// temporary 
 
 void	print_tab(int *tab, int tabsize, char *str)
 {
