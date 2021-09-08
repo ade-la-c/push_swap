@@ -1,0 +1,16 @@
+->	"push_value" en cours (algo 100),
+
+->	i need to figure out how to push 1 closest value at a time
+
+->	figured out how to push 1 value at a time, 
+	but cursed error happends always at 5th PUSH B for some reason
+
+->	cursed error is being fixed, problem is that I only RA but no RRA
+
+->	error seems fixed (idk), i should start with sort_stb.c
+
+->	we doin sort_stb now, doesnt seem to work right now but shouldnt be that complicated
+
+
+->	i gotta fix the newcode, find how to properly manage the last chunk,
+	wether it's an exact one (% = 0) or non exact one

@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/02 14:44:46 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/08 18:50:39 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,9 @@ int	main(int ac, char **av)
 		exit_error("malloc failed");
 	tabs->sta = strs_to_tab(strs, tabs);
 	print_tab(tabs->sta, tabs->sizea, "sta main");
-	if (tabs->sizea == 3)
+	if (tabs->sizea <= 5)
 		algo_3(tabs);
-	else if (tabs->sizea == 5)
-		algo_5(tabs);
-	else if (tabs->sizea == 100)
+	else
 		big_algo(tabs);
 	print_tab(tabs->sta, tabs->sizea, "sta main end");
 	return (0);
