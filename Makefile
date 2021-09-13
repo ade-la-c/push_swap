@@ -6,7 +6,7 @@
 #    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/09/13 14:10:15 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/09/13 17:53:31 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,13 @@ SRCS			= srcs/main.c \
 				srcs/algo/big_algo/big_algo.c \
 				srcs/algo/big_algo/get_chunks.c
 
+BSRCS		= srcs/checker.c \
+			srcs/actions.c \
+			srcs/utils/utils.c
+
 OBJS			= $(SRCS:.c=.o)
+
+BOBJS			= $(BSRCS:.c=.o)
 
 CC				= gcc
 
@@ -27,7 +33,7 @@ RM				= rm -f
 
 CFLAGS			= -Wall -Werror -Wextra -I. -g -fsanitize=address
 
-LIB				= -L ./includes/libft -lft
+LIB				= -L ./libft -lft
 
 CL_GREY			= \033[38;2;128;128;128m
 
@@ -43,24 +49,34 @@ all:			$(NAME)
 $(NAME):		$(OBJS)
 						@echo "$(CL_GREEN)-> COMPILING LIBFT$(CL_RESET)"
 						@echo "$(CL_GREY)"
-						@$(MAKE) -C ./includes/libft bonus
+						@$(MAKE) -C ./libft bonus
 						@echo "$(CL_RESET)"
 						@echo "$(CL_GREEN)-> COMPILING PUSH_SWAP$(CL_RESET)"
 						@echo "$(CL_GREY)"
 						$(CC) ${CFLAGS} -o$(NAME) $(OBJS) $(LIB)
 						@echo "$(CL_RESET)"
 
+bonus:			$(BOBJS)
+						@echo "$(CL_GREEN)-> COMPILING LIBFT$(CL_RESET)"
+						@echo "$(CL_GREY)"
+						@$(MAKE) -C ./libft bonus
+						@echo "$(CL_RESET)"
+						@echo "$(CL_GREEN)-> COMPILING CHECKER$(CL_RESET)"
+						@echo "$(CL_GREY)"
+						$(CC) ${CFLAGS} -o checker $(BOBJS) $(LIB)
+						@echo "$(CL_RESET)"
+
 clean:
 						@echo "$(CL_GREEN)-> CLEAN$(CL_RESET)"
 						@echo "$(CL_GREY)"
-						@$(MAKE) -C ./includes/libft clean
+						@$(MAKE) -C ./libft clean
 						$(RM) $(OBJS)
 						@echo "$(CL_RESET)"
 
 fclean:				clean
 						@echo "$(CL_GREEN)-> FCLEAN$(CL_RESET)"
 						@echo "$(CL_GREY)"
-						@$(MAKE) -C ./includes/libft fclean
+						@$(MAKE) -C ./libft fclean
 						$(RM) $(NAME)
 						@echo "$(CL_RESET)"
 

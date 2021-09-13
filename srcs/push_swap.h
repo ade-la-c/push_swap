@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 14:44:41 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:39:15 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-# include "../includes/libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_tabs
 {
@@ -55,6 +55,10 @@ void				get_chunks(t_tabs *tabs);
 
 void				lil_algo(t_tabs *tabs);
 void				big_algo(t_tabs *tabs);
+
+//---CHECKER---//
+
+void				checker(t_tabs *tabs);
 
 void				print_tab(int *tab, int tabsize, char *str);
 

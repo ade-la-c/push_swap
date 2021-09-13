@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:20:52 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 12:07:59 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/13 15:27:52 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ static void	push_value(t_tabs *tabs, int num, int i, int pos)
 {//printf("||%d||\n", pos);
 	while (i > 0 && pos != 0)
 	{
-		if (pos > tabs->sizea / 2)
-			action(tabs, "rra");
-		else
+		if (pos <= tabs->sizea / 2)
 			action(tabs, "ra");
+		else
+			action(tabs, "rra");
 		i--;
 	}
 	// printf("|%d|%d|\n", i, tabs->sta[0]);
@@ -84,9 +84,11 @@ static void	push_correct_value(t_tabs *tabs)
 	else
 		b = tabs->sizea - posb;			printf("A:%d B:%d\n", a, b);
 	if (a <= b){printf(" %d+", a);
-		push_value(tabs, tabs->lowa, a, posa);}
+		push_value(tabs, tabs->lowa, a, posa);
+		}
 	else if (a > b){printf(" %d~", b);
-		push_value(tabs, tabs->lowb, b, posb);}
+		push_value(tabs, tabs->lowb, b, posb);
+		}
 	return ;
 }
 
