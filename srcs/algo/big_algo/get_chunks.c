@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 18:00:19 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/08 19:07:57 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/13 11:32:06 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,19 @@ static void	split_chunks(t_tabs *tabs, int *sorted_tab)
 	int	i;
 	int	j;
 	int	k;
-	int	chunksize;
 
 	i = 0;
 	k = 0;
-	chunksize = tabs->sizea / tabs->chunk;
-	while (i < tabs->chunk)
+	while (i < tabs->chunk - 1)
 	{
 		j = -1;
-		while (++j < chunksize)
+		while (++j < tabs->chunksize)
 			tabs->chunks[i][j] = sorted_tab[j + k];
-		k += chunksize;
+		k += tabs->chunksize;
 		i++;
 	}
 	j = -1;
-	while (++j < tabs->sizea % tabs->chunk)
+	while (++j < tabs->lastchunksize)
 		tabs->chunks[i][j] = sorted_tab[j + k];
 }
 
@@ -68,37 +66,33 @@ static int	nbr_of_chunks(int i)
 		return (16);
 }
 
-//	get_chunks is the main function used to define & make chunks
+// get_chunks is the main function used to define & make chunks
 
 void	get_chunks(t_tabs *tabs)
 {
 	int	i;
-	int	tmp;
-	int	chunksize;
-	int	lastchunksize;
 
-	i = 0;
-	tmp = tabs->sizea;
-	tabs->chunk = nbr_of_chunks(tabs->sizea) - 1;
-	tabs->chunks = (int **)malloc(sizeof(int *) * tabs->chunk + 1);
-	if (!tabs->chunks)
+	i = -1;
+	tabs->chunk = nbr_of_chunks(tabs->sizea);
+	tabs->chunks = (int **)malloc(sizeof(int *) * tabs->chunk);
+	if (!tabs->chunk)
 		exit_error("malloc failed");
-	chunksize = tabs->sizea / tabs->chunk;
-	if (tabs->sizea % tabs->chunk)
-		lastchunksize = tabs->sizea % tabs->chunk;
-	else
-		lastchunksize = tabs->sizea / tabs->chunk;
-	while (i < tabs->chunk)
+	if (!tabs->sizea % tabs->chunk)
 	{
-		tabs->chunks[i] = (int *)malloc(sizeof(int) * chunksize);
-		if (!tabs->chunks[i])
-			exit_error("malloc failed");
-		tmp -= chunksize;
-		i++;
+		tabs->chunksize = tabs->sizea / tabs->chunk;
+		tabs->lastchunksize = tabs->sizea / tabs->chunk;
 	}
-	if ()
-		tabs->chunks[i] = (int *)malloc(sizeof(int) * tabs->sizea % tabs->chunk);
+	else
+	{
+		tabs->chunksize = tabs->sizea / (tabs->chunk - 1);
+		tabs->lastchunksize = tabs->sizea % (tabs->chunk - 1);
+	}
+	while (++i < tabs->chunk - 1)
+	{
+		tabs->chunks[i] = (int *)malloc(sizeof(int) * tabs->chunksize);
 		if (!tabs->chunks[i])
 			exit_error("malloc failed");
+	}
+	tabs->chunks[i] = (int *)malloc(sizeof(int) * tabs->lastchunksize);
 	fill_chunks(tabs);
 }

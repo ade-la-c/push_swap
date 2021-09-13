@@ -6,7 +6,7 @@
 #    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/09/08 18:01:22 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/09/13 10:58:27 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CC				= gcc
 
 RM				= rm -f
 
-CFLAGS			= -Wall -Werror -Wextra -I. #-g -fsanitize=address
+CFLAGS			= -Wall -Werror -Wextra -I. -g -fsanitize=address
 
 LIB				= -L ./includes/libft -lft
 

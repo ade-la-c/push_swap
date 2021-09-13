@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/08 18:55:03 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/13 11:23:20 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_tabs
 	int	sizeb;
 	int	lowa;
 	int	lowb;
+	int	chunksize;
+	int	lastchunksize;
 }	t_tabs;
 
 //---MAIN---//
