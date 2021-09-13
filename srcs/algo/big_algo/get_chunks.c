@@ -6,11 +6,13 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 18:00:19 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 11:32:06 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/13 14:17:28 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+//	split_chunks writes inside each chunk
 
 static void	split_chunks(t_tabs *tabs, int *sorted_tab)
 {
@@ -54,9 +56,7 @@ static void	fill_chunks(t_tabs *tabs)
 
 static int	nbr_of_chunks(int i)
 {
-	if (i < 5)
-		return (1);
-	else if (i < 12)
+	if (i < 12)
 		return (3);
 	else if (i < 99)
 		return (5);
@@ -66,7 +66,7 @@ static int	nbr_of_chunks(int i)
 		return (16);
 }
 
-// get_chunks is the main function used to define & make chunks
+//	get_chunks is the main function used to define & make chunks
 
 void	get_chunks(t_tabs *tabs)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_5.c                                           :+:      :+:    :+:   */
+/*   lil_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 19:58:21 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/01 18:42:09 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/13 14:45:06 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,40 @@ static void	push_lower_values(t_tabs *tabs)
 	return ;
 }
 
-void	algo_5(t_tabs *tabs)
+static void	algo_3(t_tabs *tabs)
+{
+	if ((tabs->sta[0] < tabs->sta[1] && tabs->sta[1] > tabs->sta[2]
+			&& tabs->sta[0] < tabs->sta[2]) || (tabs->sta[0] > tabs->sta[1]
+			&& tabs->sta[1] < tabs->sta[2] && tabs->sta[0] < tabs->sta[2])
+		|| (tabs->sta[0] > tabs->sta[1] && tabs->sta[1] > tabs->sta[2]
+			&& tabs->sta[0] > tabs->sta[2]))
+		action(tabs, "sa");
+	if (tabs->sta[0] < tabs->sta[1] && tabs->sta[1] > tabs->sta[2]
+		&& tabs->sta[0] > tabs->sta[2])
+		action(tabs, "rra");
+	if (tabs->sta[0] > tabs->sta[1] && tabs->sta[1] < tabs->sta[2]
+		&& tabs->sta[0] > tabs->sta[2])
+		action(tabs, "ra");
+	return ;
+}
+
+static void	algo_4(t_tabs *tabs)
+{
+	int	tab[4];
+	int	i;
+
+	i = -1;
+	while (++i < 4)
+		tab[i] = tabs->sta[i];
+	ft_sort_int_tab(tab, 4);
+	tabs->lowb = tab[0];
+	push_lower_values(tabs);
+	algo_3(tabs);
+	action(tabs, "pa");
+	return ;
+}
+
+static void	algo_5(t_tabs *tabs)
 {
 	int	tab[5];
 	int	i;
@@ -52,4 +85,16 @@ void	algo_5(t_tabs *tabs)
 	action(tabs, "pa");
 	action(tabs, "pa");
 	return ;
+}
+
+void	lil_algo(t_tabs *tabs)
+{
+	if (tabs->sizea == 2 && tabs->sta[0] > tabs->sta[1])
+		action(tabs, "sa");
+	else if (tabs->sizea == 3)
+		algo_3(tabs);
+	else if (tabs->sizea == 4)
+		algo_4(tabs);
+	else if (tabs->sizea == 5)
+		algo_5(tabs);
 }

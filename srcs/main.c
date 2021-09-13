@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/08 18:50:39 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/13 14:19:53 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	check_stack(char **strs)
 	int	j;
 
 	i = 0;
-	if (!strs || !strs[2])
+	if (!strs || !strs[1])
 		exit_error("stack is not long enough");
 	while (strs && strs[i])
 	{
@@ -95,7 +95,7 @@ int	main(int ac, char **av)
 	tabs->sta = strs_to_tab(strs, tabs);
 	print_tab(tabs->sta, tabs->sizea, "sta main");
 	if (tabs->sizea <= 5)
-		algo_3(tabs);
+		lil_algo(tabs);
 	else
 		big_algo(tabs);
 	print_tab(tabs->sta, tabs->sizea, "sta main end");
