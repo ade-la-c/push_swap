@@ -22,3 +22,7 @@
 ->	need to merge functions in main.c to put them in utils.c
 
 ->	i need to figure out how read, GNL & stdin works to properly do the checker (checker.c)
+
+	|->	something is missing to make the checker work with the stdout of push_swap program.
+		also need to make a exit_program function for the checker to close itself when the
+		stack is succesfully sorted

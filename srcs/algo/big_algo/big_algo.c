@@ -6,11 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:20:52 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/14 17:57:06 by root             ###   ########.fr       */
+/*   Updated: 2021/09/15 00:20:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+//	push_back is used when STB is ready to push everything back to STA
 
 static void	push_back(t_tabs *tabs)
 {
@@ -33,34 +35,38 @@ static void	push_back(t_tabs *tabs)
 		str = "rrb";
 	}
 	while (--move > 0)
-		action(tabs, str);
+		action(tabs, str, 1);
 	if (high == tabs->stb[0])
-		action(tabs, "pa");
+		action(tabs, "pa", 1);
 	else
 		exit_error("push_back tsé");
 }
+
+//	push_value recieves the number to push, moves it to top & pushes it to STB
 
 static void	push_value(t_tabs *tabs, int num, int i, int pos)
 {//printf("||%d||\n", pos);
 	while (i > 0 && pos != 0)
 	{
 		if (pos <= tabs->sizea / 2)
-			action(tabs, "ra");
+			action(tabs, "ra", 1);
 		else
-			action(tabs, "rra");
+			action(tabs, "rra", 1);
 		i--;
 	}
 	// printf("|%d|%d|\n", i, tabs->sta[0]);
 	if (num == tabs->sta[0])
 	{
 		// sort_stb(tabs);
-		action(tabs, "pb");
+		action(tabs, "pb", 1);
 		// action(tabs, "rb");
 	}
 	else{	//print_tab(tabs->sta, tabs->sizea, "sta");
 			//print_tab(tabs->stb, tabs->sizeb, "stb");
 		exit_error("push_value doesn't work properly");}
 }
+
+//	push_correct_value chooses the quickest number to push between lowa & lowb
 
 static void	push_correct_value(t_tabs *tabs)
 {
@@ -93,6 +99,8 @@ static void	push_correct_value(t_tabs *tabs)
 	return ;
 }
 
+//	get_two_values gives 2 values from the start & end of STA to lowa && lowb
+
 static void	get_two_values(t_tabs *tabs, int *chunk, int chunksize)
 {
 	int	i;
@@ -118,6 +126,8 @@ static void	get_two_values(t_tabs *tabs, int *chunk, int chunksize)
 		exit_error("get two values");
 	// printf("lowA %d, lowB %d\n", tabs->lowa, tabs->lowb);
 }
+
+//	big_algo is the main function of chunk algorythm (calls other functions)
 
 void	big_algo(t_tabs *tabs)
 {

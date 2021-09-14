@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 19:58:21 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/14 17:55:49 by root             ###   ########.fr       */
+/*   Updated: 2021/09/15 00:20:43 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,21 @@ static void	push_lower_values(t_tabs *tabs)
 	while (tabs->sizea == 5)
 	{
 		if (tabs->lowa == tabs->sta[0])
-			action(tabs, "pb");
+			action(tabs, "pb", 1);
 		else if (tabs->lowa != tabs->sta[3] && tabs->lowa != tabs->sta[4])
-			action(tabs, "ra");
+			action(tabs, "ra", 1);
 		else if (tabs->lowa != tabs->sta[1] && tabs->lowa != tabs->sta[2])
-			action(tabs, "rra");
+			action(tabs, "rra", 1);
 	}
 	while (tabs->sizea == 4)
 	{
 		if (tabs->lowb == tabs->sta[0])
-			action(tabs, "pb");
+			action(tabs, "pb", 1);
 		else if (tabs->lowb != tabs->sta[2] && tabs->lowb != tabs->sta[3])
-			action(tabs, "ra");
+			action(tabs, "ra", 1);
 		else if (tabs->lowb != tabs->sta[1])
-			action(tabs, "rra");
+			action(tabs, "rra", 1);
 	}
-	// print_tab(tabs->stb, tabs->sizeb, "sta algo 5");
 	return ;
 }
 
@@ -43,13 +42,13 @@ static void	algo_3(t_tabs *tabs)
 			&& tabs->sta[1] < tabs->sta[2] && tabs->sta[0] < tabs->sta[2])
 		|| (tabs->sta[0] > tabs->sta[1] && tabs->sta[1] > tabs->sta[2]
 			&& tabs->sta[0] > tabs->sta[2]))
-		action(tabs, "sa");
+		action(tabs, "sa", 1);
 	if (tabs->sta[0] < tabs->sta[1] && tabs->sta[1] > tabs->sta[2]
 		&& tabs->sta[0] > tabs->sta[2])
-		action(tabs, "rra");
+		action(tabs, "rra", 1);
 	if (tabs->sta[0] > tabs->sta[1] && tabs->sta[1] < tabs->sta[2]
 		&& tabs->sta[0] > tabs->sta[2])
-		action(tabs, "ra");
+		action(tabs, "ra", 1);
 	return ;
 }
 
@@ -65,7 +64,7 @@ static void	algo_4(t_tabs *tabs)
 	tabs->lowb = tab[0];
 	push_lower_values(tabs);
 	algo_3(tabs);
-	action(tabs, "pa");
+	action(tabs, "pa", 1);
 	return ;
 }
 
@@ -82,15 +81,15 @@ static void	algo_5(t_tabs *tabs)
 	tabs->lowb = tab[1];
 	push_lower_values(tabs);
 	algo_3(tabs);
-	action(tabs, "pa");
-	action(tabs, "pa");
+	action(tabs, "pa", 1);
+	action(tabs, "pa", 1);
 	return ;
 }
 
 void	lil_algo(t_tabs *tabs)
 {
 	if (tabs->sizea == 2 && tabs->sta[0] > tabs->sta[1])
-		action(tabs, "sa");
+		action(tabs, "sa", 1);
 	else if (tabs->sizea == 3)
 		algo_3(tabs);
 	else if (tabs->sizea == 4)

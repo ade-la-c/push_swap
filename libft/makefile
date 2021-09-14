@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 14:15:40 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/08/27 14:48:38 by marvin           ###   ########.fr        #
+#    Updated: 2021/09/14 23:49:59 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,8 @@ SRCS	= ft_strlen.c \
 		ft_utoa.c \
 		ft_strcmp.c \
 		ft_sort_int_tab.c \
+		gnl/get_next_line.c \
+		gnl/get_next_line_utils.c \
 
 OBJS	= ${SRCS:.c=.o}
 

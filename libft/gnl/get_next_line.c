@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 13:28:36 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/14 16:11:27 by marvin           ###   ########.fr       */
+/*   Updated: 2021/09/14 23:59:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int					gnl_be_longboi(int fd, char **line, char **str, char *buf)
 		buf[ret] = '\0';
 		if (ft_checker(buf) > 0)
 		{
-			*line = ft_strjoin(*line, ft_split_at_newline(str, buf), 1);
+			*line = ft_strjoinn(*line, ft_split_at_newline(str, buf), 1);
 			break ;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:24:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/14 20:27:56 by root             ###   ########.fr       */
+/*   Updated: 2021/09/14 23:42:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,77 @@ int	is_in_tab(int n, int *tab, int len)
 		if (tab[i] == n)
 			return (i);
 	return (-5);
+}
+
+//	check_doubles veryfies that there is no repeated numbers in the stack
+
+static void	check_doubles(char **strs)
+{
+	int	i;
+	int	j;
+	int	x;
+
+	i = 0;
+	x = 0;
+	while (strs && strs[i])
+	{
+		j = -1;
+		while (strs[i] && strs[++j])
+			if (ft_atoi(strs[i]) == ft_atoi(strs[j]))
+				x++;
+		i++;
+		if (x > 1)
+			exit_error("duplicate numbers aren't allowed");
+		x = 0;
+	}
+}
+
+//	check_stack veryfies that all entries in the stack are correct
+
+void	check_stack(char **strs)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (!strs || !strs[1])
+		exit_error("stack is not long enough");
+	while (strs && strs[i])
+	{
+		j = 0;
+		if (strs[i][j] == '-' || strs[i][j] == '+')
+			j++;
+		while (ft_isdigit(strs[i][j]))
+			j++;
+		if (strs[i][j])
+			exit_error("Error");
+		i++;
+	}
+	check_doubles(strs);
+}
+
+//	strs_to_tab converts an array of strings in array of numbers for later use
+
+int	*strs_to_tab(char **strs, t_tabs *tabs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+		i++;
+	tabs->sizea = i;
+	tabs->sizeb = 0;
+	tabs->sta = (int *)malloc(sizeof(int) * i);
+	tabs->stb = (int *)malloc(sizeof(int) * i);
+	if (!tabs->sta || !tabs->stb)
+		exit_error("malloc failed");
+	i = 0;
+	while (strs[i])
+	{
+		tabs->sta[i] = ft_atoi(strs[i]);
+		i++;
+	}
+	return (tabs->sta);
 }
 
 // temporary 

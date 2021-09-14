@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/14 20:36:01 by root             ###   ########.fr       */
+/*   Updated: 2021/09/15 01:16:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ typedef struct s_tabs
 void				check_stack(char **strs);
 int					*strs_to_tab(char **strs, t_tabs *tabs);
 
-
 //---ACTION---//
 
-void				action(t_tabs *tabs, char *action);
+void				action(t_tabs *tabs, char *action, int bool);
 
 //---UTILS---//
 
@@ -63,6 +62,7 @@ void				big_algo(t_tabs *tabs);
 //---CHECKER---//
 
 void				checker(t_tabs *tabs);
+
 
 void				print_tab(int *tab, int tabsize, char *str);
 
