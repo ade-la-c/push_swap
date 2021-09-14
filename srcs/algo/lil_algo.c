@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lil_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 19:58:21 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 14:45:06 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:55:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	push_lower_values(t_tabs *tabs)
 		else if (tabs->lowb != tabs->sta[1])
 			action(tabs, "rra");
 	}
-	print_tab(tabs->stb, tabs->sizeb, "sta algo 5");
+	// print_tab(tabs->stb, tabs->sizeb, "sta algo 5");
 	return ;
 }
 

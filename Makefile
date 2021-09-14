@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/09/13 17:53:31 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/09/14 16:18:50 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ CC				= gcc
 
 RM				= rm -f
 
-CFLAGS			= -Wall -Werror -Wextra -I. -g -fsanitize=address
+CFLAGS			= -Wall -Werror -Wextra -I. #-g -fsanitize=address
 
 LIB				= -L ./libft -lft
 

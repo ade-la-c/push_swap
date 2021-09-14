@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:24:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 15:19:49 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:27:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@
 
 void	exit_error(char *error)
 {
-	ft_putstr("ERROR : ");
-	ft_putstr(error);
+	if (!ft_strcmp(error, "Error"))
+		ft_putstr("Error");
+	else
+	{
+		ft_putstr("ERROR : ");
+		ft_putstr(error);
+	}
 	ft_putchar('\n');
 	exit(0);
 }

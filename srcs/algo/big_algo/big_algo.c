@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:20:52 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 15:27:52 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:57:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ static void	push_value(t_tabs *tabs, int num, int i, int pos)
 		action(tabs, "pb");
 		// action(tabs, "rb");
 	}
-	else{	print_tab(tabs->sta, tabs->sizea, "sta");
-			print_tab(tabs->stb, tabs->sizeb, "stb");
+	else{	//print_tab(tabs->sta, tabs->sizea, "sta");
+			//print_tab(tabs->stb, tabs->sizeb, "stb");
 		exit_error("push_value doesn't work properly");}
 }
 
@@ -72,8 +72,8 @@ static void	push_correct_value(t_tabs *tabs)
 	posa = is_in_tab(tabs->lowa, tabs->sta, tabs->sizea);
 	posb = is_in_tab(tabs->lowb, tabs->sta, tabs->sizea);
 	if (posa == -5 || posb == -5){
-	print_tab(tabs->sta, tabs->sizea, "sta");
-	print_tab(tabs->stb, tabs->sizeb, "stb");
+	// print_tab(tabs->sta, tabs->sizea, "sta");
+	// print_tab(tabs->stb, tabs->sizeb, "stb");
 		exit_error("pos problem");}
 	if (posa <= tabs->sizea / 2)
 		a = posa;
@@ -82,11 +82,12 @@ static void	push_correct_value(t_tabs *tabs)
 	if (posb <= tabs->sizea / 2)
 		b = posb;
 	else
-		b = tabs->sizea - posb;			printf("A:%d B:%d\n", a, b);
-	if (a <= b){printf(" %d+", a);
+		b = tabs->sizea - posb;			
+	// printf("A:%d B:%d\n", a, b);
+	if (a <= b){//printf(" %d+", a);
 		push_value(tabs, tabs->lowa, a, posa);
 		}
-	else if (a > b){printf(" %d~", b);
+	else if (a > b){//printf(" %d~", b);
 		push_value(tabs, tabs->lowb, b, posb);
 		}
 	return ;
@@ -115,7 +116,7 @@ static void	get_two_values(t_tabs *tabs, int *chunk, int chunksize)
 	}
 	if (tabs->lowa == tabs->stb[0] && tabs->lowb == tabs->stb[0])
 		exit_error("get two values");
-	printf("lowA %d, lowB %d\n", tabs->lowa, tabs->lowb);
+	// printf("lowA %d, lowB %d\n", tabs->lowa, tabs->lowb);
 }
 
 void	big_algo(t_tabs *tabs)
@@ -146,5 +147,5 @@ void	big_algo(t_tabs *tabs)
 	{
 		push_back(tabs);
 	}
-	print_tab(tabs->stb, tabs->sizeb, "stb after algo 100");
+	// print_tab(tabs->stb, tabs->sizeb, "stb after algo 100");
 }

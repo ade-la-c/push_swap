@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 17:39:15 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:36:01 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <stdarg.h>
 # include <stdio.h>
+# include <sys/types.h>
 
 # include "../libft/libft.h"
 
@@ -38,7 +39,10 @@ typedef struct s_tabs
 
 //---MAIN---//
 
-int					main(int ac, char **av);
+// int					main(int ac, char **av);
+void				check_stack(char **strs);
+int					*strs_to_tab(char **strs, t_tabs *tabs);
+
 
 //---ACTION---//
 

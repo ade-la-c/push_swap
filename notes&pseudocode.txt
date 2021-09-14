@@ -14,3 +14,11 @@
 
 ->	i gotta fix the newcode, find how to properly manage the last chunk,
 	wether it's an exact one (% = 0) or non exact one
+
+->	chunks work now properly
+
+--------
+
+->	need to merge functions in main.c to put them in utils.c
+
+->	i need to figure out how read, GNL & stdin works to properly do the checker (checker.c)

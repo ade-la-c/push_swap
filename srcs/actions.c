@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:13:58 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 12:07:30 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:58:28 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	reverse_rotate(t_tabs *tabs, char *action)
 }
 
 static void	push(int *src, int *dest, int sizea, int sizeb)
-{static int	iteration = 1;
+{//static int	iteration = 1;
 	int	tmp;
 	int	i;
 
@@ -95,12 +95,12 @@ static void	push(int *src, int *dest, int sizea, int sizeb)
 		i--;
 	}
 	dest[0] = tmp;
-	printf("(%d)", iteration++);
+	// printf("(%d)", iteration++);
 }
 
 void	action(t_tabs *tabs, char *action)
 {
-	static int	iteration = 1;
+	// static int	iteration = 1;
 	if (!ft_strcmp(action, "sa") || !ft_strcmp(action, "sb")
 		|| !ft_strcmp(action, "ss"))
 		swap(tabs, action);
@@ -125,8 +125,8 @@ void	action(t_tabs *tabs, char *action)
 	else
 		exit_error("wrong action param");
 	ft_putstr(action);
-	printf("\t\t(%d)\n", iteration++);
+	ft_putchar('\n');
+	// printf("\t\t(%d)\n", iteration++);
 	// if (iteration > 1000)
 	// 	exit_error("el muchacho de los ojos tristes");
-	// ft_putchar('\n');
 }

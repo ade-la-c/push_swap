@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:06:51 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/08/27 14:49:30 by marvin           ###   ########.fr       */
+/*   Updated: 2021/09/14 16:01:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stdio.h>
+
+# include "./gnl/get_next_line.h"
 
 typedef struct s_list
 {

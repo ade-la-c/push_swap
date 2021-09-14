@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 14:19:53 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:35:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	check_doubles(char **strs)
 	}
 }
 
-static void	check_stack(char **strs)
+void	check_stack(char **strs)
 {
 	int	i;
 	int	j;
@@ -49,16 +49,13 @@ static void	check_stack(char **strs)
 		while (ft_isdigit(strs[i][j]))
 			j++;
 		if (strs[i][j])
-		{
-			ft_putstr("Error\n");
-			exit(0);
-		}
+			exit_error("Error");
 		i++;
 	}
 	check_doubles(strs);
 }
 
-static int	*strs_to_tab(char **strs, t_tabs *tabs)
+int	*strs_to_tab(char **strs, t_tabs *tabs)
 {
 	int	i;
 
@@ -93,11 +90,11 @@ int	main(int ac, char **av)
 	if (!strs)
 		exit_error("malloc failed");
 	tabs->sta = strs_to_tab(strs, tabs);
-	print_tab(tabs->sta, tabs->sizea, "sta main");
+	// print_tab(tabs->sta, tabs->sizea, "sta main");
 	if (tabs->sizea <= 5)
 		lil_algo(tabs);
 	else
 		big_algo(tabs);
-	print_tab(tabs->sta, tabs->sizea, "sta main end");
+	// print_tab(tabs->sta, tabs->sizea, "sta main end");
 	return (0);
 }
