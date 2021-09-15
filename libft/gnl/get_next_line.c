@@ -3,93 +3,123 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/23 13:28:36 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/14 23:59:31 by root             ###   ########.fr       */
+/*   Created: 2020/02/25 10:26:18 by thgillai          #+#    #+#             */
+/*   Updated: 2021/04/20 15:41:29 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int			ft_checker(char *str)
+static char	*get_line(char *reste)
 {
-	int				i;
+	int		i;
+	char	*line;
 
-	i = -1;
-	if (!str)
-		return (-1);
-	while (str[++i])
-		if (str[i] == '\n')
-		{
-			if (i < ft_strlenn(str) - 1)
-				return (2);
-			return (1);
-		}
-	return (0);
-}
-
-static char			*ft_split_at_newline(char **str, char *s2)
-{
-	char			*ret;
-	int				i;
-	int				len;
-
-	i = -1;
-	len = 0;
-	while (s2[len] && s2[len] != '\n')
-		len++;
-	if (!(ret = (char *)malloc(sizeof(char) * (len + 1))))
+	i = 0;
+	while (reste && reste[i] && reste[i] != '\n')
+		i++;
+	line = (char *)malloc((i + 1) * sizeof(char));
+	if (!line)
 		return (NULL);
-	ret[len] = '\0';
-	while (++i < len)
-		ret[i] = s2[i];
-	if (!(*str = ft_substrr(s2, len + 1, ft_strlenn(s2) - len - 1, *str)))
-		return (NULL);
-	return (ret);
-}
-
-int					gnl_be_longboi(int fd, char **line, char **str, char *buf)
-{
-	int				ret;
-
-	ret = 0;
-	while ((ret = read(fd, buf, BUFFER_SIZE)) > 0)
+	i = 0;
+	while (reste && reste[i] && reste[i] != '\n')
 	{
-		buf[ret] = '\0';
-		if (ft_checker(buf) > 0)
-		{
-			*line = ft_strjoinn(*line, ft_split_at_newline(str, buf), 1);
-			break ;
-		}
-		else
-			*line = ft_strjoinn(*line, buf, 0);
+		line[i] = reste[i];
+		i++;
 	}
-	return (ret == 0 ? 0 : 1);
+	line[i] = '\0';
+	return (line);
 }
 
-int					get_next_line(int fd, char **line)
+static char	*ft_strjoinplus(char *reste, char *buff, int ret)
 {
-	static char		*str[OPEN_MAX];
-	char			buf[BUFFER_SIZE < 0 ? 0 : BUFFER_SIZE + 1];
+	char	*new;
+	int		i;
+	int		j;
 
-	*line = ft_strdupp("");
-	if (fd < 0 || fd > OPEN_MAX || !line || BUFFER_SIZE < 1
-	|| read(fd, buf, 0) < 0)
+	new = (char *)malloc((ft_strlen2(reste) + ret + 1) * sizeof(char));
+	if (!new)
+		return (0);
+	i = 0;
+	while (reste && reste[i])
+	{
+		new[i] = reste[i];
+		i++;
+	}
+	j = 0;
+	while (j < ret)
+	{
+		new[i + j] = buff[j];
+		j++;
+	}
+	new[i + j] = '\0';
+	if (reste)
+		free(reste);
+	return (new);
+}
+
+static char	*free_reste(char *reste, int *ret, int j)
+{
+	char	*new;
+	int		i;
+
+	*ret = 0;
+	i = is_line(reste);
+	if (i < 0)
+	{
+		if (i == -1)
+			free(reste);
+		return (0);
+	}
+	new = (char *)malloc((ft_strlen2(reste) - i + 1) * sizeof(char));
+	if (!new)
+	{
+		*ret = -1;
+		free(reste);
+		return (0);
+	}
+	i++;
+	norme_gnl(reste, i, &j, new);
+	new[j] = '\0';
+	free(reste);
+	return (new);
+}
+
+static int	get_next_l(int fd, char **line, unsigned int size)
+{
+	char		buff[BUFFER_SIZE + 1];
+	static char	*reste[FOPEN_MAX];
+	int			ret;
+
+	if (read(fd, buff, 0) < 0)
 		return (-1);
-	buf[BUFFER_SIZE] = '\0';
-	if (ft_checker(str[fd]) > 0)
+	*line = NULL;
+	ret = 1;
+	while (is_line(reste[fd]) < 0 && ret)
 	{
-		free(*line);
-		*line = ft_split_at_newline(&str[fd], str[fd]);
-		return (1);
+		ret = read(fd, buff, size);
+		reste[fd] = ft_strjoinplus(reste[fd], buff, ret);
+		if (!reste[fd])
+			return (-1);
 	}
-	else if (ft_checker(str[fd]) == 0)
-	{
-		free(*line);
-		*line = ft_strdupp(str[fd]);
-		free(str[fd]);
-		str[fd] = NULL;
-	}
-	return (gnl_be_longboi(fd, line, &str[fd], buf));
+	*line = get_line(reste[fd]);
+	if (!*line)
+		return (-1);
+	reste[fd] = free_reste(reste[fd], &ret, 0);
+	if (!reste[fd])
+		return (-1);
+	return (1);
+}
+
+int	get_next_line(int fd, char **line)
+{
+	unsigned int	size;
+
+	if (BUFFER_SIZE <= 0 || !line || fd > FOPEN_MAX)
+		return (-1);
+	size = BUFFER_SIZE;
+	size += 1;
+	return (get_next_l(fd, line, size));
 }

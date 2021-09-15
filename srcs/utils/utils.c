@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:24:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/14 23:42:46 by root             ###   ########.fr       */
+/*   Updated: 2021/09/15 17:14:20 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	check_stack(char **strs)
 			j++;
 		if (strs[i][j])
 			exit_error("Error");
+		if (ft_atoi(strs[i]) == -1 && ft_strlen(strs[i]) > 3)
+			exit_error("number is too big");
 		i++;
 	}
 	check_doubles(strs);
@@ -111,26 +113,24 @@ int	*strs_to_tab(char **strs, t_tabs *tabs)
 	return (tabs->sta);
 }
 
-// temporary 
+// void	print_tab(int *tab, int tabsize, char *str)
+// {
+// 	int	i;
+// 	int	j;
 
-void	print_tab(int *tab, int tabsize, char *str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = -1;
-	printf("--%s--\n", str);
-	while (i < tabsize && ++j >= 0)
-	{
-		printf("[%d]", tab[i]);
-		i++;
-		if (j == 19)
-		{
-			printf("\n");
-			j = -1;
-		}
-	}
-	printf("\n---\n");
-	return ;
-}
+// 	i = 0;
+// 	j = -1;
+// 	printf("--%s--\n", str);
+// 	while (i < tabsize && ++j >= 0)
+// 	{
+// 		printf("[%d]", tab[i]);
+// 		i++;
+// 		if (j == 19)
+// 		{
+// 			printf("\n");
+// 			j = -1;
+// 		}
+// 	}
+// 	printf("\n---\n");
+// 	return ;
+// }

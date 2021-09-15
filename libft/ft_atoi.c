@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 19:33:02 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/06/01 15:47:39 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/15 16:54:13 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi(const char *s)
 	}
 	while (s[i] && (s[i] >= '0' && s[i] <= '9'))
 		res = res * 10 + (s[i++] - 48);
-	if (res > 2147483648)
+	if (res > INT32_MAX)
 		return (-1);
 	return (res * neg);
 }

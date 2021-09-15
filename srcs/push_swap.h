@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:50:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 01:16:04 by root             ###   ########.fr       */
+/*   Updated: 2021/09/15 17:16:18 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_tabs
 	int	sizeb;
 	int	lowa;
 	int	lowb;
+	int	higha;
+	int	highb;
 	int	chunksize;
 	int	lastchunksize;
 }	t_tabs;
@@ -63,8 +65,6 @@ void				big_algo(t_tabs *tabs);
 
 void				checker(t_tabs *tabs);
 
+// void				print_tab(int *tab, int tabsize, char *str);
 
-void				print_tab(int *tab, int tabsize, char *str);
-
-// static int iteration = 1;
 #endif

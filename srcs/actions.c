@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:13:58 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 00:12:58 by root             ###   ########.fr       */
+/*   Updated: 2021/09/15 17:18:06 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	reverse_rotate(t_tabs *tabs, char *action)
 }
 
 static void	push(int *src, int *dest, int sizea, int sizeb)
-{//static int	iteration = 1;
+{
 	int	tmp;
 	int	i;
 
@@ -95,20 +95,15 @@ static void	push(int *src, int *dest, int sizea, int sizeb)
 		i--;
 	}
 	dest[0] = tmp;
-	// printf("(%d)", iteration++);
 }
 
 void	action(t_tabs *tabs, char *action, int bool)
 {
-	// static int	iteration = 1;
-	if (!ft_strcmp(action, "sa") || !ft_strcmp(action, "sb")
-		|| !ft_strcmp(action, "ss"))
+	if (!ft_strcmp(action, "sa") || !ft_strcmp(action, "sb"))
 		swap(tabs, action);
-	else if (!ft_strcmp(action, "ra") || !ft_strcmp(action, "rb")
-		|| !ft_strcmp(action, "rr"))
+	else if (!ft_strcmp(action, "ra") || !ft_strcmp(action, "rb"))
 		rotate(tabs, action);
-	else if (!ft_strcmp(action, "rra") || !ft_strcmp(action, "rrb")
-		|| !ft_strcmp(action, "rrr"))
+	else if (!ft_strcmp(action, "rra") || !ft_strcmp(action, "rrb"))
 		reverse_rotate(tabs, action);
 	else if (!ft_strcmp(action, "pa"))
 	{
@@ -128,7 +123,4 @@ void	action(t_tabs *tabs, char *action, int bool)
 		return ;
 	ft_putstr(action);
 	ft_putchar('\n');
-	// printf("\t\t(%d)\n", iteration++);
-	// if (iteration > 1000)
-	// 	exit_error("el muchacho de los ojos tristes");
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/09/14 23:49:07 by root             ###   ########.fr        #
+#    Updated: 2021/09/15 15:50:58 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ SRCS			= srcs/main.c \
 				srcs/utils/utils.c \
 				srcs/algo/lil_algo.c \
 				srcs/algo/big_algo/big_algo.c \
-				srcs/algo/big_algo/get_chunks.c
+				srcs/algo/big_algo/get_chunks.c \
 
-BSRCS		= srcs/checker.c \
-			srcs/actions.c \
-			srcs/utils/utils.c
+BSRCS			= srcs/checker.c \
+				srcs/actions.c \
+				srcs/utils/utils.c
 
 OBJS			= $(SRCS:.c=.o)
 
