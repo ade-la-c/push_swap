@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 19:28:19 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/16 00:16:41 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ static void	free_all(t_tabs *tabs, char **strs)
 	i = 0;
 	if (tabs->chunk)
 	{
+		while (--tabs->chunk > 1)
+			free(tabs->chunks[tabs->chunk]);
 		if (tabs->lastchunksize)
-			while (tabs->chunk > 0)
-				free(tabs->chunks[tabs->chunk--]);
-		else
-			while (--tabs->chunk > 1)
-				free(tabs->chunks[tabs->chunk]);
+			free(tabs->chunks[tabs->chunk]);
 		free(tabs->chunks[0]);
 		free(tabs->chunks);
 	}
@@ -56,7 +54,7 @@ int	main(int ac, char **av)
 	else
 		big_algo(tabs);
 	free_all(tabs, strs);
+	system("leaks push_swap");
 	return (0);
 }
 
-	// system("leaks push_swap");
