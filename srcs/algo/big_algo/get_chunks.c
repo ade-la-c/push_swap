@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 18:00:19 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 18:40:11 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:23:14 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	nbr_of_chunks(int i)
 	else if (i < 495)
 		return (9);
 	else
-		return (16);
+		return (15);
 }
 
 //	get_chunks is the main function used to define & make chunks
