@@ -34,3 +34,5 @@
 
 
 	for i in {0..99}; do ARG=`ruby -e "puts (0..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | tee >(wc -l) | ./checker $ARG; done
+
+->	as soon as i have 16 chunks (495 numbers), there is a leak, idk why...

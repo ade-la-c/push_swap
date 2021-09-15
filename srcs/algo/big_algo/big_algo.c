@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:20:52 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 17:15:55 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:05:27 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ void	big_algo(t_tabs *tabs)
 		get_two_values(tabs, tabs->chunks[i], tabs->lastchunksize);
 		push_correct_value(tabs);
 	}
+	// printf("____%d_____\n", tabs->chunksize);exit(0);
 	while (tabs->sizeb > 0)
 		push_back(tabs);
 }

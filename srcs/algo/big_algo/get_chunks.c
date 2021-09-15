@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 18:00:19 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/13 14:17:28 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/15 18:40:11 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static void	fill_chunks(t_tabs *tabs)
 		sorted_tab[i] = tabs->sta[i];
 	ft_sort_int_tab(sorted_tab, tabs->sizea);
 	split_chunks(tabs, sorted_tab);
+	free(sorted_tab);
 }
 
 //	nbr_of_chunks defines how many chunks are used according to SIZEA
