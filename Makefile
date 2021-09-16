@@ -6,7 +6,7 @@
 #    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/09/16 12:35:54 by ade-la-c         ###   ########.fr        #
+#    Updated: 2021/09/16 12:50:28 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ BNAME			= checker
 
 BSRCS			= srcs/checker.c \
 				srcs/actions.c \
-				srcs/utils/utils.c
+				srcs/utils.c
 
 OBJS			= $(SRCS:.c=.o)
 
