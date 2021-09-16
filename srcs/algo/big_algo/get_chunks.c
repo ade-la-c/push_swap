@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 18:00:19 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 19:23:14 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/16 12:10:46 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	nbr_of_chunks(int i)
 	else if (i < 99)
 		return (5);
 	else if (i < 495)
-		return (9);
+		return (7);
 	else
 		return (15);
 }

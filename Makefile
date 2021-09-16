@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:02:21 by ade-la-c          #+#    #+#              #
-#    Updated: 2021/09/16 00:14:42 by root             ###   ########.fr        #
+#    Updated: 2021/09/16 12:35:54 by ade-la-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,12 @@ NAME			= push_swap
 
 SRCS			= srcs/main.c \
 				srcs/actions.c \
-				srcs/utils/utils.c \
+				srcs/utils.c \
 				srcs/algo/lil_algo.c \
 				srcs/algo/big_algo/big_algo.c \
 				srcs/algo/big_algo/get_chunks.c \
+
+BNAME			= checker
 
 BSRCS			= srcs/checker.c \
 				srcs/actions.c \
@@ -31,7 +33,7 @@ CC				= gcc
 
 RM				= rm -f
 
-CFLAGS			= -Wall -Werror -Wextra -I. #-g -fsanitize=address
+CFLAGS			= -Wall -Werror -Wextra -I. -g -fsanitize=address
 
 LIB				= -L ./libft -lft
 
@@ -63,21 +65,21 @@ bonus:			$(BOBJS)
 						@echo "$(CL_RESET)"
 						@echo "$(CL_GREEN)-> COMPILING CHECKER$(CL_RESET)"
 						@echo "$(CL_GREY)"
-						$(CC) ${CFLAGS} -o checker $(BOBJS) $(LIB)
+						$(CC) ${CFLAGS} -o$(BNAME) $(BOBJS) $(LIB)
 						@echo "$(CL_RESET)"
 
 clean:
 						@echo "$(CL_GREEN)-> CLEAN$(CL_RESET)"
 						@echo "$(CL_GREY)"
 						@$(MAKE) -C ./libft clean
-						$(RM) $(OBJS)
+						$(RM) $(OBJS) $(BOBJS)
 						@echo "$(CL_RESET)"
 
 fclean:				clean
 						@echo "$(CL_GREEN)-> FCLEAN$(CL_RESET)"
 						@echo "$(CL_GREY)"
 						@$(MAKE) -C ./libft fclean
-						$(RM) $(NAME)
+						$(RM) $(NAME) $(BNAME)
 						@echo "$(CL_RESET)"
 
 re:					fclean all

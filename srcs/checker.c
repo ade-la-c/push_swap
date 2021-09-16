@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 16:57:40 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 23:59:25 by root             ###   ########.fr       */
+/*   Updated: 2021/09/16 12:25:54 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ static void	free_all(t_tabs *tabs, char **strs)
 
 	i = 0;
 	while (strs && strs[i])
-	{
 		free(strs[i++]);
-	}
 	free(strs);
 	free(tabs->sta);
 	free(tabs->stb);
@@ -59,14 +57,11 @@ int	main(int ac, char **av)
 		exit_error("Error");
 	check_stack(strs);
 	tabs->sta = strs_to_tab(strs, tabs);
-	if (check_order(tabs))
-		ft_putstr("OK\n");
 	while (get_next_line(0, &line) > 0)
 	{
 		action(tabs, line, 2);
 		free(line);
 	}
-	free(&line);
 	if (check_order(tabs))
 		ft_putstr("OK\n");
 	else
@@ -74,3 +69,5 @@ int	main(int ac, char **av)
 	free_all(tabs, strs);
 	return (0);
 }
+
+	// system("leaks checker");

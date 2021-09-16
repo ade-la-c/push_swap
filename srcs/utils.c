@@ -6,11 +6,11 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:24:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/15 18:43:31 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/16 12:35:27 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 //	exit_error is used everytime an error is expected to avoid crashing
 
