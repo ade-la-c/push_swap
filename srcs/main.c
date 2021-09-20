@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/16 12:14:04 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/20 16:41:53 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,40 @@ static void	free_all(t_tabs *tabs, char **strs)
 	free(tabs);
 }
 
+static int	check_order(t_tabs *tabs)
+{
+	int	i;
+
+	i = 0;
+	if (tabs->sizeb)
+		return (0);
+	while (i < tabs->sizea - 1)
+	{
+		if (tabs->sta[i] < tabs->sta[i + 1])
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	char	**strs;
 	t_tabs	*tabs;
 
 	tabs = ft_calloc(1, sizeof(t_tabs));
-	if (ac != 2)
-		exit_error("too many / few arguments");
+	if (ac < 2)
+		return (0);
+	if (ac > 2)
+		exit_error("Error");
 	strs = ft_split(av[1], ' ');
 	check_stack(strs);
-	if (!strs || !strs[1])
-		exit_error("stack is not long enough");
+	if (!strs)
+		exit_error("ft_split failed");
 	tabs->sta = strs_to_tab(strs, tabs);
+	if (check_order(tabs))
+		return (0);
 	if (tabs->sizea <= 5)
 		lil_algo(tabs);
 	else

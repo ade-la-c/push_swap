@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:13:58 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/16 12:35:06 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/20 16:19:17 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ static void	push(int *src, int *dest, int sizea, int sizeb)
 
 	i = 0;
 	tmp = src[0];
+	if (!sizea)
+		return ;
 	while (i + 1 < sizea)
 	{
 		src[i] = src[i + 1];
@@ -109,22 +111,13 @@ void	action(t_tabs *tabs, char *action, int bool)
 		|| !ft_strcmp(action, "rrr"))
 		reverse_rotate(tabs, action);
 	else if (!ft_strcmp(action, "pa"))
-	{
-		push(tabs->stb, tabs->sta, tabs->sizeb, tabs->sizea);
-		tabs->sizea += 1;
-		tabs->sizeb -= 1;
-	}
+		push(tabs->stb, tabs->sta, tabs->sizeb--, tabs->sizea++);
 	else if (!ft_strcmp(action, "pb"))
-	{
-		push(tabs->sta, tabs->stb, tabs->sizea, tabs->sizeb);
-		tabs->sizea -= 1;
-		tabs->sizeb += 1;
-	}
+		push(tabs->sta, tabs->stb, tabs->sizea--, tabs->sizeb++);
+	else
+		exit_error("Error");
 	if (bool == 2)
 		return ;
 	ft_putstr(action);
 	ft_putchar('\n');
 }
-
-	// else
-	// 	exit_error("wrong action param");

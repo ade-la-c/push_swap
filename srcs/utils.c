@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:24:05 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/16 12:35:27 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/20 12:20:02 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	check_doubles(char **strs)
 				x++;
 		i++;
 		if (x > 1)
-			exit_error("duplicate numbers aren't allowed");
+			exit_error("Error");
 		x = 0;
 	}
 }
@@ -71,8 +71,6 @@ void	check_stack(char **strs)
 	int	j;
 
 	i = 0;
-	if (!strs || !strs[1])
-		exit_error("stack is not long enough");
 	while (strs && strs[i])
 	{
 		j = 0;
@@ -83,7 +81,7 @@ void	check_stack(char **strs)
 		if (strs[i][j])
 			exit_error("Error");
 		if (ft_atoi(strs[i]) == -1 && ft_strlen(strs[i]) > 3)
-			exit_error("number is too big");
+			exit_error("Error");
 		i++;
 	}
 	check_doubles(strs);

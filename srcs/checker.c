@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 16:57:40 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/16 12:25:54 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:03:43 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int ac, char **av)
 
 	tabs = ft_calloc(1, sizeof(t_tabs));
 	if (ac != 2)
-		exit_error("Error");
+		return (0);
 	strs = ft_split(av[1], ' ');
 	if (!strs || !strs[1])
 		exit_error("Error");
