@@ -6,7 +6,7 @@
 /*   By: ade-la-c <ade-la-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 15:51:24 by ade-la-c          #+#    #+#             */
-/*   Updated: 2021/09/20 16:41:53 by ade-la-c         ###   ########.fr       */
+/*   Updated: 2021/09/21 12:57:42 by ade-la-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ static void	free_all(t_tabs *tabs, char **strs)
 	i = 0;
 	if (tabs->chunk)
 	{
-		while (--tabs->chunk > 1)
-			free(tabs->chunks[tabs->chunk]);
-		if (tabs->lastchunksize)
+		while (--tabs->chunk)
 			free(tabs->chunks[tabs->chunk]);
 		free(tabs->chunks[0]);
 		free(tabs->chunks);
