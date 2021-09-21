@@ -23,7 +23,7 @@ BNAME			= checker
 
 BSRCS			= srcs/checker.c \
 				srcs/actions.c \
-				srcs/utils.c
+				srcs/utils.c \
 
 OBJS			= $(SRCS:.c=.o)
 
